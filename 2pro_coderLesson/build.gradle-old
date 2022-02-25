@@ -1,0 +1,72 @@
+task hello {
+    doLast {
+        println 'tutorialsPoint'
+    }
+}
+
+task upper {
+    doLast {
+        String expString = 'TUTORIALS point'
+        println "Original: " + expString
+        println "Upper case: " + expString.toUpperCase()
+    }
+}
+
+task count {
+    doLast {
+        4.times {
+            print "$it "
+        }
+
+    }
+
+}
+
+task groovyJDK {
+    String myName = "Marc";
+    myName.each() {
+        println "${it}"
+    }
+}
+
+// Using a getter method
+println project.buildDir
+println getProject().getBuildDir()
+
+// Using a setter method
+project.buildDir = 'target'
+getProject().setBuildDir('target')
+
+test.systemProperty 'some.prop', 'value'
+test.systemProperty('some.prop', 'value')
+
+
+reprotories {
+    println "in a closure"
+}
+
+reprotories() {
+    println "in a closure"
+}
+
+reprotories({println "in a closure"})
+
+////////////////////////////////////////////////////////////////////////////////
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repo.mycompany.com/maven2"
+    }
+}
+
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+dependencies {
+  compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+}
